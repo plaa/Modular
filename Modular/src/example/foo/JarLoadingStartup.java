@@ -36,6 +36,7 @@ public class JarLoadingStartup {
 			urls[i] = f.toURI().toURL();
 		}
 		
+		ClassLoader currentClassLoader = Thread.currentThread().getContextClassLoader();
 		MyURLClassLoader urlClassLoader = new MyURLClassLoader(urls, null);
 		Thread.currentThread().setContextClassLoader(urlClassLoader);
 		
