@@ -3,7 +3,6 @@ package example.foo;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
-import java.net.URLClassLoader;
 
 public class JarLoadingStartup {
 	
@@ -37,7 +36,7 @@ public class JarLoadingStartup {
 			urls[i] = f.toURI().toURL();
 		}
 		
-		URLClassLoader urlClassLoader = new URLClassLoader(urls, null);
+		MyURLClassLoader urlClassLoader = new MyURLClassLoader(urls, null);
 		Thread.currentThread().setContextClassLoader(urlClassLoader);
 		
 		System.out.println("Classpath updated");

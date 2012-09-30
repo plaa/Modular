@@ -13,8 +13,11 @@ class PluginModule extends AbstractModule {
 			// In reality the name would be got from examining the JAR file contents
 			Class<? extends MyInt> c = (Class<? extends MyInt>) Class.forName("myplugin.MyPlugin");
 			myint.addBinding().to(c);
+			
+			Class.forName("myplugin.NotFoundMyPlugin");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Could not load MyPlugin: " + e);
+			e.printStackTrace();
 		}
 	}
 }
