@@ -14,7 +14,7 @@ class PluginModule extends AbstractModule {
 			Class<? extends MyInt> c = (Class<? extends MyInt>) Class.forName("myplugin.MyPlugin");
 			myint.addBinding().to(c);
 			
-			Class.forName("myplugin.NotFoundMyPlugin");
+			Class.forName("ShouldNotFoundClass"); // Get stack trace anyway
 		} catch (ClassNotFoundException e) {
 			System.out.println("Could not load MyPlugin: " + e);
 			e.printStackTrace();
